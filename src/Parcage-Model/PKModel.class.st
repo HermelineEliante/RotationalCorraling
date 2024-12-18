@@ -2,7 +2,8 @@ Class {
 	#name : 'PKModel',
 	#superclass : 'CMAbstractModel',
 	#instVars : [
-		'theSpatialUnits'
+		'theSpatialUnits',
+		'theCattleBatches'
 	],
 	#category : 'Parcage-Model',
 	#package : 'Parcage-Model'
@@ -28,18 +29,33 @@ PKModel >> initMap [
 		createGridNumberOfRows: 20
 		numberOfColumns: 20
 		neighbourhood: 4
-		closed: true
+		closed: true.
+		
+	self createN: 10 randomlyLocatedAloneEntities: PKCattleBatch 
 ]
 
 { #category : 'accessing' }
 PKModel >> initialize [ 
 super initialize.
-theSpatialUnits := OrderedCollection new
+theSpatialUnits := OrderedCollection new.
+theCattleBatches := OrderedCollection new.
 ]
 
 { #category : 'accessing' }
 PKModel >> step: t [
  	<control>
+]
+
+{ #category : 'accessing' }
+PKModel >> theCattleBatches [ 
+<getterFor: #PKCattleBatch >
+	^ theCattleBatches 
+]
+
+{ #category : 'accessing' }
+PKModel >> theCattleBatches: anObject [
+
+	theCattleBatches := anObject
 ]
 
 { #category : 'accessing' }

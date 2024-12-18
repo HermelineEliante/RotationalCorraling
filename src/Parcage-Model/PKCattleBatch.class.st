@@ -47,3 +47,9 @@ PKCattleBatch >> numberOfHeads: anObject [
 
 	numberOfHeads := anObject
 ]
+
+{ #category : 'accessing' }
+PKCattleBatch >> pov [ 
+	<pov>
+	^CMPointOfView color: Color white 
+]

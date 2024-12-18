@@ -32,3 +32,9 @@ PKSpatialUnit >> fertilitylevel: anObject [
 
 	fertilitylevel := anObject
 ]
+
+{ #category : 'accessing' }
+PKSpatialUnit >> pov [ 
+	<pov>
+	^CMPointOfView color: Color brown 
+]
