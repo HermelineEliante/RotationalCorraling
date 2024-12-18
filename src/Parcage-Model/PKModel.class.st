@@ -36,9 +36,9 @@ PKModel >> initMap [
 
 { #category : 'accessing' }
 PKModel >> initialize [ 
-super initialize.
-theSpatialUnits := OrderedCollection new.
-theCattleBatches := OrderedCollection new.
+	super initialize.
+	theSpatialUnits := OrderedCollection new.
+	theCattleBatches := OrderedCollection new.
 ]
 
 { #category : 'accessing' }

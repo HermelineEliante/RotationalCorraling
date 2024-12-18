@@ -36,6 +36,13 @@ PKCattleBatch >> dailyForrageNeed: anObject [
 	dailyForrageNeed := anObject
 ]
 
+{ #category : 'initialization' }
+PKCattleBatch >> initialize [ 
+	super initialize.
+	"numberOfHeads := 15."
+	numberOfHeads := self randomIntegerBetween: 15 and: 150
+]
+
 { #category : 'accessing' }
 PKCattleBatch >> numberOfHeads [
 
@@ -48,8 +55,18 @@ PKCattleBatch >> numberOfHeads: anObject [
 	numberOfHeads := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : 'pov' }
 PKCattleBatch >> pov [ 
 	<pov>
-	^CMPointOfView color: Color white 
+	^ CMPointOfView color: Color white 
+]
+
+{ #category : 'pov' }
+PKCattleBatch >> povNumberOfHeads [
+	<pov>
+	^ CMPointOfView color:(self
+		colorAttribute: #numberOfHeads  
+		min: 15
+		max: 150
+		color: Color red)
 ]
