@@ -33,8 +33,24 @@ PKSpatialUnit >> fertilitylevel: anObject [
 	fertilitylevel := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : 'initialization' }
+PKSpatialUnit >> initialize [ 
+	super initialize.
+	fertilitylevel := self randomBetween: 1 and: 10
+]
+
+{ #category : 'pov-fertility' }
 PKSpatialUnit >> pov [ 
 	<pov>
 	^CMPointOfView color: Color brown 
+]
+
+{ #category : 'pov-fertility' }
+PKSpatialUnit >> povFertilityLevel [
+	<pov>
+	^CMPointOfView color: (self
+		colorAttribute: #fertilitylevel  
+		min: 1
+		max: 10
+		color: Color brown)
 ]
