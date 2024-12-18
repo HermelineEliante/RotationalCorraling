@@ -62,6 +62,17 @@ PKCattleBatch >> pov [
 ]
 
 { #category : 'pov' }
+PKCattleBatch >> povImage [ 
+	<pov>
+	^ CMPointOfView image: CMBrownCow standing first size: numberOfHeads / 150 * 2
+	
+	"
+	15 / 150 * 2 = 0.2
+	150 / 150 * 2 = 2
+	"
+]
+
+{ #category : 'pov' }
 PKCattleBatch >> povNumberOfHeads [
 	<pov>
 	^ CMPointOfView color:(self

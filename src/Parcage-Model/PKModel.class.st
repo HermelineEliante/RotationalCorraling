@@ -35,6 +35,19 @@ PKModel >> initMap [
 ]
 
 { #category : 'accessing' }
+PKModel >> initSmall [
+
+	<init>
+	self
+		createGridNumberOfRows: 4
+		numberOfColumns: 4
+		neighbourhood: 4
+		closed: true.
+		
+	self createN: 4 randomlyLocatedAloneEntities: PKCattleBatch 
+]
+
+{ #category : 'accessing' }
 PKModel >> initialize [ 
 	super initialize.
 	theSpatialUnits := OrderedCollection new.
