@@ -5,23 +5,45 @@ Class {
 	#classTraits : 'TCMLocated classTrait',
 	#instVars : [
 		'numberOfHeads',
-		'dailyForrageNeed',
-		'breeder'
+		'dailyForrageNeed'
+	],
+	#classInstVars : [
+		'minNumberOfHeads',
+		'maxNumberOfHeads'
 	],
 	#category : 'Parcage-Model',
 	#package : 'Parcage-Model'
 }
 
-{ #category : 'accessing' }
-PKCattleBatch >> breeder [
-
-	^ breeder
+{ #category : 'initialization' }
+PKCattleBatch class >> initializeParameters [ 
+	super initializeParameters.
+	minNumberOfHeads := 15.
+	maxNumberOfHeads :=150
 ]
 
 { #category : 'accessing' }
-PKCattleBatch >> breeder: anObject [
+PKCattleBatch class >> maxNumberOfHeads [
 
-	breeder := anObject
+	^ maxNumberOfHeads
+]
+
+{ #category : 'accessing' }
+PKCattleBatch class >> maxNumberOfHeads: anObject [
+
+	maxNumberOfHeads := anObject
+]
+
+{ #category : 'accessing' }
+PKCattleBatch class >> minNumberOfHeads [
+
+	^ minNumberOfHeads
+]
+
+{ #category : 'accessing' }
+PKCattleBatch class >> minNumberOfHeads: anObject [
+
+	minNumberOfHeads := anObject
 ]
 
 { #category : 'accessing' }
@@ -40,7 +62,11 @@ PKCattleBatch >> dailyForrageNeed: anObject [
 PKCattleBatch >> initialize [ 
 	super initialize.
 	"numberOfHeads := 15."
-	numberOfHeads := self randomIntegerBetween: 15 and: 150
+	"numberOfHeads := self randomIntegerBetween: 15 and: 150"
+	
+	numberOfHeads := self
+		randomIntegerBetween: self class minNumberOfHeads 
+		and: self class maxNumberOfHeads 
 ]
 
 { #category : 'accessing' }
